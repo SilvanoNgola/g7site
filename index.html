@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G7 NGOLA, Lda.</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        header {
+            background-color: #8a2be2;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ffd700;
+            padding: 10px;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #8a2be2;
+            color: white;
+            border-radius: 5px;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .section {
+            display: none;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border-left: 5px solid #008000;
+        }
+        .active {
+            display: block;
+        }
+	.imoveis {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .imovel-card {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            margin: 15px;
+        }
+        .imovel-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>G7 NGOLA - IMOBILIÁRIA.</h1>
+        <p>Consultoria, Venda, Mediação e Legalização de Imóveis</p>
+    </header>
+    <nav>
+        <a onclick="showSection('sobre')">Sobre</a>
+        <a onclick="showSection('servicos')">Serviços</a>
+        <a onclick="showSection('imoveis')">Imóveis</a>
+        <a onclick="showSection('contato')">Contato</a>
+    </nav>
+    <div class="container">
+        <div id="sobre" class="section active">
+            <h2>Sobre</h2>
+            <p>A G7 NGOLA é uma empresa direito angolano que actua no sector imobiliário, pretando serviços de Consultoria, Assessoria, Legalização, Mediação e Venda de Imóveis. Nosso compromisso é oferecer soluções seguras e eficientes para facilitar o processo de regularização e negociação de propriedades em território nacional.</p>
+            
+        </div>
+        <div id="servicos" class="section">
+            <h2>Nossos Serviços</h2>
+            <p>Prestamos serviços de Consultoria, Assessoria, Promoção, Legalização e Mediação de Imóveis a nível nacional.</p>
+            <h3>Áreas de Atuação:</h3>
+            <ul>
+                <li>Consultoria Imobiliária</li>
+                <li>Assessoria Imobiliária</li>
+                <li>Promoção Imobiliária</li>
+                <li>Legalização Imobiliária</li>
+                <li>Mediação Imobiliária</li>
+            </ul>
+            <h3>Documentação:</h3>
+            <p>Fornecemos assistência na obtenção e regularização dos seguintes documentos:</p>
+            <ul>
+                <li>Croquis de Localização</li>
+                <li>Plano de Aproveitamento</li>
+                <li>Direito de Superfície</li>
+                <li>Licença de Construção</li>
+                <li>Inscrição Matricial Predial</li>
+                <li>Registo Predial de Benfeitorias</li>
+                <li>Contrato de Arrendamento</li>
+                <li>Guia de Pagamento de Imóvel</li>
+                <li>Termo de Quitação</li>
+                <li>Guia de Pagamento de Sisa</li>
+                <li>Sisa Definitiva</li>
+                <li>Escritura Pública de Compra e Venda</li>
+                <li>Registo Predial</li>
+                <li>Procuração Irrevogável</li>
+                <li>Outros documentos necessários para a regularização jurídica de imóveis</li>
+            </ul>
+            <h3>Quer Legalizar, Vender, Comprar ou Arrendar um Imóvel?</h3>
+            <p>Entre em contato conosco e descubra como podemos ajudar!</p>
+            <p><strong>G7 NGOLA - IMOBILIÁRIA</strong><br>Servimos para satisfação do cliente.</p>
+        </div>
+        <div id="imoveis" class="section">
+            <h2>Imóveis Disponíveis</h2>
+            <div class="imoveis">
+                <div class="imovel-card">
+                    <img src="apartamento.jpg" alt="Apartamento Luxuoso">
+                    <div class="info">
+                        <h3>Apartamento Luxuoso T3+1 (ARRENDE)</h3>
+                        <p>Localização: Luanda, Maianga</p>
+                        <p>Preço: 520,000 AOA</p>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="casa.jpg" alt="Casa Moderna">
+                    <div class="info">
+                        <h3>Casa Moderna V4+1 (ARRENDE)</h3>
+                        <p>Localização: Talatona</p>
+                        <p>Preço: 1400,000 AOA</p>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="escritório.jpg" alt="Escritório Empresarial">
+                    <div class="info">
+                        <h3>Escritório Empresarial (ARRENDE)</h3>
+                        <p>Localização: Luanda, Maculusso</p>
+                        <p>Preço: 435,000 AOA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contato" class="section">
+            <h2>Contato</h2>
+            <p>WhatsApp e Telemóvel: +244 927 221 898 / +244 952 834 946</p>
+            <p>Email: olimpiongola@gmail.com</p>
+            <p>Endereço: Distrito Neves Bendinha, Bairro Anangola, Rua C Nº63, Luanda</p>
+        </div>
+    </div>
+</body>
+</html>
