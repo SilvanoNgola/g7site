@@ -6,23 +6,34 @@
     <title>G7 NGOLA, Lda.</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #ffffff;
             color: #000000;
         }
         header {
-            background-color: #8a2be2;
-            padding: 20px;
+
+	    background-color: #8a2be2;
+            padding: 10px;
             text-align: center;
             color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         nav {
-            display: flex;
+            
+	    display: flex;
             justify-content: center;
             background-color: #ffd700;
             padding: 10px;
+            position: fixed;
+            top: 140px;
+            width: 100%;
+            z-index: 1000;
+
         }
         nav a {
             color: black;
@@ -51,6 +62,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
             border-left: 5px solid #008000;
+	    margin-top: 200px
         }
         .active {
             display: block;
@@ -59,7 +71,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-        }
+	    
         .imovel-card {
             background-color: #fff;
             padding: 15px;
@@ -75,6 +87,34 @@
             object-fit: cover;
             border-radius: 8px;
         }
+
+	.imovel-card h3 {
+            font-size: 1.3rem;
+            color: #8a2be2;
+            margin-bottom: 10px;
+        }
+
+        .imovel-card p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+	.btn {
+            display: inline-block;
+            background-color: #8a2be2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #6a1b9a;
+        }
+
     </style>
     <script>
         function showSection(sectionId) {
@@ -91,19 +131,49 @@
         <p>Consultoria, Venda, Mediação e Legalização de Imóveis</p>
     </header>
     <nav>
-        <a onclick="showSection('sobre')">Sobre</a>
-        <a onclick="showSection('servicos')">Serviços</a>
         <a onclick="showSection('imoveis')">Imóveis</a>
+        <a onclick="showSection('servicos')">Serviços</a>
         <a onclick="showSection('contato')">Contato</a>
+	<a onclick="showSection('sobre')">Sobre</a>
     </nav>
     <div class="container">
-        <div id="sobre" class="section active">
-            <h2>Sobre</h2>
-            <p>A G7 NGOLA é uma empresa direito angolano que actua no sector imobiliário, pretando serviços de Consultoria, Assessoria, Legalização, Mediação e Venda de Imóveis. Nosso compromisso é oferecer soluções seguras e eficientes para facilitar o processo de regularização e negociação de propriedades em território nacional.</p>
-            
+        
+	<div id="imoveis" class="section active">
+            <h2 style="color: #8a2be2" >Imóveis Disponíveis</h2>
+            <div class="imoveis">
+                <div class="imovel-card">
+                    <img src="apartamento.jpg" alt="Apartamento">
+		    
+                    <div class="info">
+                        <h3>Apartamento T3+1 (ARRENDE)</h3>
+                        <p>Localização: Luanda, Maianga</p>
+                        <p>Preço: 520,000 AOA</p>
+			<a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="casa.jpg" alt="Casa Moderna">
+                    <div class="info">
+                        <h3>Casa Moderna V4+1 (ARRENDE)</h3>
+                        <p>Localização: Luanda,Talatona</p>
+                        <p>Preço: 1400,000 AOA</p>
+			<a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+                <div class="imovel-card">
+                    <img src="escritório.jpg" alt="Escritório Empresarial">
+                    <div class="info">
+                        <h3>Escritório Empresarial (ARRENDE)</h3>
+                        <p>Localização: Luanda, Maculusso</p>
+                        <p>Preço: 435,000 AOA</p>
+			<a href="#" class="btn">Detalhes</a>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div id="servicos" class="section">
-            <h2>Nossos Serviços</h2>
+            <h2 style="color: #8a2be2">Nossos Serviços</h2>
             <p>Prestamos serviços de Consultoria, Assessoria, Promoção, Legalização e Mediação de Imóveis a nível nacional.</p>
             <h3>Áreas de Atuação:</h3>
             <ul>
@@ -136,41 +206,32 @@
             <p>Entre em contato conosco e descubra como podemos ajudar!</p>
             <p><strong>G7 NGOLA - IMOBILIÁRIA</strong><br>Servimos para satisfação do cliente.</p>
         </div>
-        <div id="imoveis" class="section">
-            <h2>Imóveis Disponíveis</h2>
-            <div class="imoveis">
-                <div class="imovel-card">
-                    <img src="apartamento.jpg" alt="Apartamento Luxuoso">
-                    <div class="info">
-                        <h3>Apartamento Luxuoso T3+1 (ARRENDE)</h3>
-                        <p>Localização: Luanda, Maianga</p>
-                        <p>Preço: 520,000 AOA</p>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="casa.jpg" alt="Casa Moderna">
-                    <div class="info">
-                        <h3>Casa Moderna V4+1 (ARRENDE)</h3>
-                        <p>Localização: Talatona</p>
-                        <p>Preço: 1400,000 AOA</p>
-                    </div>
-                </div>
-                <div class="imovel-card">
-                    <img src="escritório.jpg" alt="Escritório Empresarial">
-                    <div class="info">
-                        <h3>Escritório Empresarial (ARRENDE)</h3>
-                        <p>Localização: Luanda, Maculusso</p>
-                        <p>Preço: 435,000 AOA</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <div id="contato" class="section">
-            <h2>Contato</h2>
+            <h2 style="color: #8a2be2">Contato</h2>
             <p>WhatsApp e Telemóvel: +244 927 221 898 / +244 952 834 946</p>
             <p>Email: olimpiongola@gmail.com</p>
             <p>Endereço: Distrito Neves Bendinha, Bairro Anangola, Rua C Nº63, Luanda</p>
         </div>
+	
+        <div id="sobre" class="section">
+            <h2 style="color: #8a2be2">Sobre</h2>
+            <p>A G7 NGOLA é uma empresa de direito angolano que atua no sector imobiliário, prestando serviços de Consultoria, Assessoria, Legalização, Mediação e Venda de Imóveis. Nosso compromisso é oferecer soluções seguras e eficientes para facilitar o processo de regularização e negociação de propriedades em território nacional.</p>
+            <h3>Nossos Objetivos</h3>
+            <ul>
+                <li>Fornecer serviços imobiliários de alta qualidade, com transparência e ética.</li>
+                <li>Facilitar o acesso à regularização jurídica de imóveis para todos os cidadãos.</li>
+                <li>Promover a confiança e a satisfação dos clientes através de um atendimento personalizado.</li>
+            </ul>
+            <h3>Nossos Propósitos</h3>
+            <ul>
+                <li>Ser referência no mercado imobiliário angolano, destacando-nos pela excelência e profissionalismo.</li>
+                <li>Contribuir para o desenvolvimento do setor imobiliário, oferecendo soluções inovadoras e acessíveis.</li>
+                <li>Garantir a segurança jurídica e a tranquilidade dos nossos clientes em todas as transações.</li>
+            </ul>
+        </div>
+    </div>
+
     </div>
 </body>
 </html>
