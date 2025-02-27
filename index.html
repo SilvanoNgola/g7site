@@ -6,15 +6,14 @@
     <title>G7 NGOLA, Lda.</title>
     <style>
         body {
-             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #ffffff;
             color: #000000;
         }
         header {
-
-	    background-color: #8a2be2;
+            background-color: #8a2be2;
             padding: 10px;
             text-align: center;
             color: white;
@@ -24,8 +23,7 @@
             z-index: 1000;
         }
         nav {
-            
-	    display: flex;
+            display: flex;
             justify-content: center;
             background-color: #ffd700;
             padding: 10px;
@@ -33,7 +31,6 @@
             top: 140px;
             width: 100%;
             z-index: 1000;
-
         }
         nav a {
             color: black;
@@ -62,16 +59,16 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
             border-left: 5px solid #008000;
-	    margin-top: 200px
+            margin-top: 200px;
         }
         .active {
             display: block;
         }
-	.imoveis {
+        .imoveis {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-	    
+        }
         .imovel-card {
             background-color: #fff;
             padding: 15px;
@@ -87,20 +84,17 @@
             object-fit: cover;
             border-radius: 8px;
         }
-
-	.imovel-card h3 {
+        .imovel-card h3 {
             font-size: 1.3rem;
             color: #8a2be2;
             margin-bottom: 10px;
         }
-
         .imovel-card p {
             font-size: 1rem;
             color: #555;
             margin-bottom: 5px;
         }
-
-	.btn {
+        .btn {
             display: inline-block;
             background-color: #8a2be2;
             color: white;
@@ -110,11 +104,42 @@
             font-weight: 600;
             transition: background-color 0.3s;
         }
-
         .btn:hover {
             background-color: #6a1b9a;
         }
-
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+        }
+        .modal-content h3 {
+            color: #8a2be2;
+        }
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .modal-description {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
     </style>
     <script>
         function showSection(sectionId) {
@@ -122,6 +147,28 @@
                 section.classList.remove('active');
             });
             document.getElementById(sectionId).classList.add('active');
+        }
+
+        function showDetails(title, location, price, image, description) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalLocation = document.getElementById('modal-location');
+            const modalPrice = document.getElementById('modal-price');
+            const modalImage = document.getElementById('modal-image');
+            const modalDescription = document.getElementById('modal-description');
+
+            modalTitle.textContent = title;
+            modalLocation.textContent = `Localização: ${location}`;
+            modalPrice.textContent = `Preço: ${price}`;
+            modalImage.src = image;
+            modalDescription.textContent = description;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
         }
     </script>
 </head>
@@ -134,30 +181,38 @@
         <a onclick="showSection('imoveis')">Imóveis</a>
         <a onclick="showSection('servicos')">Serviços</a>
         <a onclick="showSection('contato')">Contato</a>
-	<a onclick="showSection('sobre')">Sobre</a>
+        <a onclick="showSection('sobre')">Sobre</a>
     </nav>
     <div class="container">
-        
-	<div id="imoveis" class="section active">
-            <h2 style="color: #8a2be2" >Imóveis Disponíveis</h2>
+        <div id="imoveis" class="section active">
+            <h2 style="color: #8a2be2">Imóveis Disponíveis</h2>
             <div class="imoveis">
+		 <div class="imovel-card">
+                    <img src="privada.png" alt="Vivenda T3 1º Andar ">
+                    <div class="info">
+                        <h3>Vivenda T3 1º Andar</h3>
+                        <p>Localização: Luanda, Maianga</p>
+                        <p>Preço: 190 000,000 AOA</p>
+                        <a href="#" class="btn" onclick="showDetails('Vivenda T3 1º Andar', 'Luanda, Maianga', '190 000,000 AOA', 'privada.png', 'Vendemos o melhor, saiba: ✅No Rés-do-chão: Duas salas, cozinha, dispensa, WC, quintal para 1 Jeep e corredor traseiro e lateral com porta independente. ✅No 1° Andar: Três quartos, casa de banho e corredor. Terraço com alprende para lazer e outras actividades. ⚠ Tem toda documentação, Certidão de Escritura Pública, Certidão de Registo Predial e IPU actualizado.')">Detalhes</a>
+                    </div>
+                </div>
+
                 <div class="imovel-card">
                     <img src="apartamento.jpg" alt="Apartamento">
-		    
                     <div class="info">
-                        <h3>Apartamento Mobiliado T3+1 </h3>
+                        <h3>Apartamento Mobiliado T3+1</h3>
                         <p>Localização: Luanda, Maianga</p>
                         <p>Preço: 520,000 AOA</p>
-			<a href="#" class="btn">Detalhes</a>
+                        <a href="#" class="btn" onclick="showDetails('Apartamento Mobiliado T3+1', 'Luanda, Maianga', '520,000 AOA', 'apartamento.jpg', 'Este apartamento mobiliado possui 3 quartos, 1 sala de estar, cozinha equipada e uma varanda com vista para a cidade. Ideal para famílias.')">Detalhes</a>
                     </div>
                 </div>
                 <div class="imovel-card">
                     <img src="casa.jpg" alt="Casa Moderna">
                     <div class="info">
                         <h3>Casa Moderna V4+1</h3>
-                        <p>Localização: Luanda,Talatona</p>
-                        <p>Preço: 1400,000 AOA</p>
-			<a href="#" class="btn">Detalhes</a>
+                        <p>Localização: Luanda, Talatona</p>
+                        <p>Preço: 1 400,000 AOA</p>
+                        <a href="#" class="btn" onclick="showDetails('Casa Moderna V4+1', 'Luanda, Talatona', '1400,000 AOA', 'casa.jpg', 'Esta casa moderna possui 4 quartos, 1 suíte, sala de estar ampla, cozinha moderna e área de lazer com piscina. Perfeita para quem busca conforto e sofisticação.')">Detalhes</a>
                     </div>
                 </div>
                 <div class="imovel-card">
@@ -166,9 +221,20 @@
                         <h3>Escritório Empresarial</h3>
                         <p>Localização: Luanda, Maculusso</p>
                         <p>Preço: 435,000 AOA</p>
-			<a href="#" class="btn">Detalhes</a>
+                        <a href="#" class="btn" onclick="showDetails('Escritório Empresarial', 'Luanda, Maculusso', '435,000 AOA', 'escritório.jpg', 'Escritório amplo e bem localizado, ideal para empresas que buscam um espaço profissional e moderno. Possui salas climatizadas, recepção e estacionamento privativo.')">Detalhes</a>
                     </div>
                 </div>
+
+		<div class="imovel-card">
+                    <img src="privada.png" alt="Terreno 4050 m² + 1350 m²">
+                    <div class="info">
+                        <h3>Terreno 4050 m² + 1350 m²</h3>
+                        <p>Localização: Luanda, Benfica (Patriota)</p>
+                        <p>Preço: 85 USD/m²</p>
+                        <a href="#" class="btn" onclick="showDetails('Terreno 4050 m² + 1350 m²', 'Luanda, Benfica (Patriota)', '85 USD/m²', 'privada.png', '✅Um Terreno de 4.050 m2 + 1.350 m2 dois em um, no Kifica, Benfica em frente ao Patriota, vedado com muro e tanque de água. Ao preço de Usd 85,00 negociável por m2 ao câmbio do Banco Nacional.')">Detalhes</a>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -213,7 +279,7 @@
             <p>Email: olimpiongola@gmail.com</p>
             <p>Endereço: Distrito Neves Bendinha, Bairro Anangola, Rua C Nº63, Luanda</p>
         </div>
-	
+        
         <div id="sobre" class="section">
             <h2 style="color: #8a2be2">Sobre</h2>
             <p>A G7 NGOLA é uma empresa de direito angolano que atua no sector imobiliário, prestando serviços de Consultoria, Assessoria, Legalização, Mediação e Venda de Imóveis. Nosso compromisso é oferecer soluções seguras e eficientes para facilitar o processo de regularização e negociação de propriedades em território nacional.</p>
@@ -232,6 +298,16 @@
         </div>
     </div>
 
+  
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <img id="modal-image" src="" alt="Imóvel" style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
+            <p id="modal-location"></p>
+            <p id="modal-price"></p>
+            <p id="modal-description" class="modal-description"></p>
+        </div>
     </div>
 </body>
 </html>
